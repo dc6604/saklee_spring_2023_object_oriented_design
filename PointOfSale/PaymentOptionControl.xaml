@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.PaymentOptionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="520" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Name="CashBtn" Grid.Column="0" Height="300" Width="250" FontSize="100" Click="CashBtn_Click">Cash</Button>
+        <Button Name="CardBtn" Grid.Column="1" Height="300" Width="250" FontSize="100" Click="CardBtn_Click">Card</Button>
+    </Grid>
+</UserControl>

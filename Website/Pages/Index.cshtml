@@ -1,0 +1,107 @@
+﻿@page
+@using TheFlyingSaucer.Data
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form>
+    <div class="text-center">
+        <h1 class="display-4">The Flying Saucer</h1>
+        <p id="description">- Breakfast out of this World! -</p>
+    </div>
+    <div id="search_menu">
+        <div id="filter head">
+            <label id="filter_head_label">Filtered search</label>
+        </div>
+        <div id ="filter search">
+            <label>Name: </label>
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+            <input type="submit" name="Search"/>
+        </div>
+        <div id="filter menutype">
+            <label>Menu type: </label>
+            @foreach(string menutype in Menu.MenuType)
+            {
+                <label>
+                    <input type="checkbox" name="MenuType" value="@menutype" checked="@Model.MenuType.Contains(menutype)"/>
+                    @menutype
+                </label>
+            }
+        </div>
+        <div id="filter price">
+            Price: 
+            <input name="PriceMin" type="number" min="0" max="20" step="0.05" value="@Model.PriceMin"/>
+            ~
+            <input name="PriceMax" type="number" min="0" max="20" step="0.05" value="@Model.PriceMax"/>
+        </div>
+        <div id="filter calories">
+            Calories: 
+            <input name="CaloriesMin" type="number" min="0" max="1000" step="50" value="@Model.CaloriesMin"/>
+            ~
+            <input name="CaloriesMax" type="number" min="0" max="1000" step="50" value="@Model.CaloriesMax"/>
+        </div>
+    </div>
+    <div>
+        <label></label>
+    </div>
+    <div class="menu-item">
+        <h2 id="entree" class="menutitle">Entrees</h2>
+        <ul class="entree menulist">
+            @foreach(IMenuItem item in Model.Entrees)
+            {
+                <li class="each-menu">
+                    <h3 class="menu-name">@item.Name</h3>
+                    <div class="details">
+                        <div>$@item.Price</div>
+                        <div>@item.Calories cal</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="menu-item">
+        <h2 id="side" class="side menutitle">Sides</h2>
+        <ul class="side menulist">
+            @foreach(IMenuItem item in Model.Sides)
+            {
+                <li class="each-menu">
+                    <h3 class="menu-name">@item.Name</h3>
+                    <div class="details">
+                        <div>$@item.Price</div>
+                        <div>@item.Calories cal</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="menu-item">
+        <h2 id="drink" class="drink menutitle">Drinks</h2>
+        <ul class="drink menulist">
+            @foreach(Drink item in Model.Drinks)
+            {
+                @if(!(Model.DrinkNames.Contains(item.Name)))
+                {
+                    ((List<string>)Model.DrinkNames).Add(item.Name);
+                }
+            }
+            @foreach(string name in Model.DrinkNames)
+            {
+                <li class="each-menu">
+                    <h3 class="menu-name">@name</h3>
+                    @foreach (Drink drink in Model.Drinks)
+                    {
+                        @if (drink.Name == name)
+                        {
+                            <div class="details">
+                                <div class="drink-size">@drink.Size</div>
+                                <div>$@drink.Price</div>
+                                <div>@drink.Calories cal</div>
+                            </div>
+                        }
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</form>

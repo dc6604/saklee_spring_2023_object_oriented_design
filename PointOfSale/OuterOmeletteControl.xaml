@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.OuterOmeletteControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="520" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding Path=Name}" FontSize="30" HorizontalAlignment="Center"/>
+        <ListBox Grid.Row="1">
+            <ListBoxItem>
+                <CheckBox IsChecked="{Binding Path=CheddarCheese}">CheddarCheese</CheckBox>
+            </ListBoxItem>
+            <ListBoxItem>
+                <CheckBox IsChecked="{Binding Path=Peppers}">Peppers</CheckBox>
+            </ListBoxItem>
+            <ListBoxItem>
+                <CheckBox IsChecked="{Binding Path=Mushrooms}">Mushrooms</CheckBox>
+            </ListBoxItem>
+            <ListBoxItem>
+                <CheckBox IsChecked="{Binding Path=Tomatoes}">Tomatoes</CheckBox>
+            </ListBoxItem>
+            <ListBoxItem>
+                <CheckBox IsChecked="{Binding Path=Onions}">Onions</CheckBox>
+            </ListBoxItem>
+        </ListBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="30">Calories:</TextBlock>
+            <TextBlock Grid.Column="1" FontSize="30" Text="{Binding Path=Calories}"/>
+        </Grid>
+    </Grid>
+</UserControl>

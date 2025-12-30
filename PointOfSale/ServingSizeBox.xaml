@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.ServingSizeBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             xmlns:local2="clr-namespace:TheFlyingSaucer.Data;assembly=TheFlyingSaucer.Data"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="200">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local2:ServingSize"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid>
+        <ComboBox ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=Size, RelativeSource={RelativeSource AncestorType=local:ServingSizeBox}}"/>
+    </Grid>
+</UserControl>

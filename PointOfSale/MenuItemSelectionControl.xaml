@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.MenuItemSelectionControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Entrees -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" TextAlignment="Center">Entrees</TextBlock>
+            <Button Grid.Row="1" Height="60" Width="180" FontSize="18" Content="Flying Saucer" Name="FlyingSaucerBtn" Click="FlyingSaucer_Click"/>
+            <Button Grid.Row="2" Height="60" Width="180" FontSize="18" Content="Crashed Saucer" Name="CrashedSaucerBtn" Click="CrashedSaucer_Click"/>
+            <Button Grid.Row="3" Height="60" Width="180" FontSize="18" Content="Livestock Mutilation" Name="LivestockMutilationBtn" Click="LivestockMutilation_Click"/>
+            <Button Grid.Row="4" Height="60" Width="180" FontSize="18" Content="Outer Omelette" Name="OuterOmeletteBtn" Click="OuterOmelette_Click"/>
+        </Grid>
+        <!-- Sides -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" TextAlignment="Center">Sides</TextBlock>
+            <Button Grid.Row="1" Height="60" Width="180" FontSize="18" Content="Crop Circle" Name="CropCircleBtn" Click="CropCircle_Click"/>
+            <Button Grid.Row="2" Height="60" Width="180" FontSize="18" Content="Glowing Haystack" Name="GlowingHaystackBtn" Click="GlowingHaystack_Click"/>
+            <Button Grid.Row="3" Height="60" Width="180" FontSize="18" Content="Taken Bacon" Name="TakenBaconBtn" Click="TakenBacon_Click"/>
+            <Button Grid.Row="4" Height="60" Width="180" FontSize="18" Content="Missing Links" Name="MissingLinksBtn" Click="MissingLinks_Click"/>
+            <Button Grid.Row="5" Height="60" Width="180" FontSize="18" Content="Eviscerated Eggs" Name="EvisceratedEggsBtn" Click="EvisceratedEggs_Click"/>
+            <Button Grid.Row="6" Height="60" Width="180" FontSize="18" Content="You're Toast" Name="YouAreToastBtn" Click="YouAreToast_Click"/>
+        </Grid>
+        <!-- Drinks -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" TextAlignment="Center">Drinks</TextBlock>
+            <Button Grid.Row="1" Height="60" Width="180" FontSize="18" Content="Liquified Vegetation" Name="LiquifiedVegetationBtn" Click="LiquifiedVegetation_Click"/>
+            <Button Grid.Row="2" Height="60" Width="180" FontSize="18" Content="Saucer Fuel" Name="SaucerFuelBtn" Click="SaucerFuel_Click"/>
+            <Button Grid.Row="3" Height="60" Width="180" FontSize="18" Content="Inorganic Substance" Name="InorganicSubstanceBtn" Click="InorganicSubstance_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

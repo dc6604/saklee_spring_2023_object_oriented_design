@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.OrderSummaryControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400">
+
+    <DockPanel>
+        <!-- Top Display -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock FontSize="20" Text="Order #"/>
+            <TextBlock FontSize="20" TextAlignment="Center" Text="{Binding Path=Number}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock FontSize="20" TextAlignment="Center" Text="{Binding Path=PlacedAt}"/>
+        </StackPanel>
+        <!-- Bottom Display -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" DockPanel.Dock="Bottom">
+            <TextBlock FontSize="20" Text="Total  $"/>
+            <TextBlock FontSize="20" TextAlignment="Left" Text="{Binding Path=Total}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" DockPanel.Dock="Bottom">
+            <TextBlock FontSize="20" Text="Tax  $"/>
+            <TextBlock FontSize="20" TextAlignment="Left" Text="{Binding Path=Tax}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" DockPanel.Dock="Bottom">
+            <TextBlock FontSize="20" Text="Subtotal  $"/>
+            <TextBlock FontSize="20" TextAlignment="Left" Text="{Binding Path=Subtotal}"/>
+        </StackPanel>
+        <!-- Listview for displaying order -->
+        <ListView ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name}"/>
+                        <TextBlock Text=" : $"/>
+                        <TextBlock Text="{Binding Path=Price}"/>
+                        <TextBlock Text="    "/>
+                        <Button x:Name="Edit" HorizontalAlignment="Right">Edit</Button>
+                        <TextBlock Text="   "/>
+                        <Button x:Name="Remove" HorizontalAlignment="Right">Remove</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</UserControl>
